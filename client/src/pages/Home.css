@@ -1,0 +1,431 @@
+/* #root {
+margin: 0;
+padding: 0;
+width: 100vw;
+overflow-x: hidden;
+}
+
+//Home.css - Additional styles 
+
+.home-page {
+  overflow-x: hidden;
+}
+
+//Animation classes 
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Counter animation 
+@keyframes countUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Hover effects 
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+//Gradient text 
+.gradient-text {
+  background: linear-gradient(90deg, #5a1eef, #1eef5a, #ef5a1e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Custom scrollbar 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #5a1eef, #1eef5a, #ef5a1e);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #4a1ac9, #19d14c, #d14c19);
+}
+
+// Loading skeleton animation 
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+//Responsive typography 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  .lead {
+    font-size: 1.1rem !important;
+  }
+}
+
+//Touch device optimizations 
+@media (hover: none) and (pointer: coarse) {
+  .hover-lift:hover {
+    transform: none;
+  }
+  
+  .highlight-card:active {
+    transform: scale(0.98);
+  }
+} */
+
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Home.css - Additional styles */
+
+.home-page {
+  overflow-x: hidden;
+}
+
+/* Hero section responsive fixes */
+.hero-carousel {
+  position: relative;
+}
+
+.hero-carousel .carousel-item {
+  height: 80vh;
+  min-height: 400px;
+  max-height: 800px;
+}
+
+.hero-carousel .carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 4rem 2rem 2rem !important;
+  text-align: left;
+}
+
+.hero-caption h1 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-weight: 700;
+  max-width: 800px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin: 0 auto;
+  line-height: 1.3;
+}
+
+/* Responsive hero adjustments */
+@media (max-width: 768px) {
+  .hero-carousel .carousel-item {
+    height: 60vh;
+    min-height: 350px;
+  }
+  
+  .hero-caption {
+    padding: 2rem 1rem !important;
+  }
+  
+  .hero-caption h1 {
+    font-size: 1.4rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-carousel .carousel-item {
+    height: 50vh;
+    min-height: 300px;
+  }
+  
+  .hero-caption h1 {
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+  }
+}
+
+/* Research section - horizontal scroll */
+.research-highlights {
+  overflow: hidden;
+  padding: 3rem 0;
+}
+
+.research-scroll-container {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0 2rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #1eef5a #f0f0f0;
+}
+
+.research-scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.research-scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.research-scroll-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #5a1eef, #1eef5a, #ef5a1e);
+  border-radius: 10px;
+}
+
+.research-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #4a1ac9, #19d14c, #d14c19);
+}
+
+.research-cards-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  width: max-content;
+}
+
+.research-card-item {
+  width: 320px;
+  min-width: 280px;
+  flex-shrink: 0;
+}
+
+.research-card-item .highlight-card {
+  height: 100%;
+  margin: 0;
+}
+
+/* Animation classes */
+.fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Counter animation */
+@keyframes countUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(90deg, #5a1eef, #1eef5a, #ef5a1e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #5a1eef, #1eef5a, #ef5a1e);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #4a1ac9, #19d14c, #d14c19);
+}
+
+/* Loading skeleton animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  .lead {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .hover-lift:hover {
+    transform: none;
+  }
+  
+  .highlight-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Research Auto-scroll Carousel */
+.research-auto-scroll {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  overflow: hidden;
+  user-select: none;
+}
+
+.research-auto-scroll:hover {
+  animation-play-state: paused !important;
+}
+
+.research-card-item {
+  flex: 0 0 auto;
+  width: 320px;
+  transition: transform 0.3s ease;
+}
+
+.research-card-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Bootstrap Carousel alternative */
+.research-carousel .carousel-inner {
+  padding: 1rem 0 2rem;
+}
+
+.research-carousel .carousel-indicators {
+  bottom: -20px;
+}
+
+.research-carousel .carousel-indicators button {
+  background-color: #5a1eef;
+  width: 30px;
+  height: 3px;
+  border-radius: 3px;
+}
+
+.research-carousel .carousel-control-prev,
+.research-carousel .carousel-control-next {
+  width: 5%;
+  opacity: 0.7;
+  background: linear-gradient(90deg, rgba(0,0,0,0.2), transparent);
+}
+
+.research-carousel .carousel-control-next {
+  background: linear-gradient(270deg, rgba(0,0,0,0.2), transparent);
+}
+
+.research-carousel .carousel-control-prev:hover,
+.research-carousel .carousel-control-next:hover {
+  opacity: 1;
+}
+
+.research-carousel .carousel-control-prev-icon,
+.research-carousel .carousel-control-next-icon {
+  background-color: rgba(90, 30, 239, 0.5);
+  border-radius: 50%;
+  padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .research-card-item {
+    width: 280px;
+  }
+  
+  .research-auto-scroll {
+    gap: 1rem;
+  }
+  
+  .research-carousel .carousel-control-prev,
+  .research-carousel .carousel-control-next {
+    display: none;
+  }
+}
