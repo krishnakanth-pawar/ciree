@@ -1,0 +1,237 @@
+/* ============================================================================
+   OUTREACH PAGES - Global Unified Styles
+   Publications, Science Articles, and Opportunities pages
+   ============================================================================ */
+
+/* ============================================================================
+   COLOR PALETTE
+   ============================================================================ */
+:root {
+  --outreach-primary-dark: #1f2937;
+  --outreach-primary-darker: #111827;
+  --outreach-accent-green: #059669;
+  --outreach-accent-green-dark: #047857;
+  --outreach-text-dark: #1f2933;
+  --outreach-text-subtitle: #4b5563;
+  --outreach-text-light: #d1d5db;
+  --outreach-text-muted: rgba(255, 255, 255, 0.85);
+  --outreach-white: #ffffff;
+}
+
+/* ============================================================================
+   WRAPPER & LAYOUT
+   ============================================================================ */
+
+.outreach-wrapper {
+  background: var(--outreach-white);
+  min-height: 100vh;
+}
+
+/* ============================================================================
+   MODERN ARTICLE/PROJECT GRID LAYOUT
+   ============================================================================ */
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* ============================================================================
+   CARDS & FEATURED SECTIONS
+   ============================================================================ */
+
+.featured-section {
+  margin-bottom: 3rem;
+}
+
+.featured-card {
+  background: linear-gradient(135deg, var(--outreach-accent-green) 0%, var(--outreach-accent-green-dark) 100%);
+  border-radius: 8px;
+  padding: 2rem;
+  color: var(--outreach-white);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(5, 150, 105, 0.15);
+}
+
+.featured-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+}
+
+.featured-content {
+  position: relative;
+  z-index: 1;
+}
+
+.featured-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--outreach-white);
+  color: var(--outreach-accent-green);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.featured-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .outreach-header {
+    padding: 4rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .outreach-header-underline {
+    width: 120px;
+  }
+
+  .featured-meta {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 576px) {
+  .outreach-header {
+    padding: 3rem 1rem;
+  }
+
+  .outreach-header-underline {
+    width: 90px;
+  }
+
+  .featured-card {
+    padding: 1.5rem;
+  }
+
+  .featured-meta {
+    flex-wrap: wrap;
+  }
+}
+
+/* Support Form - Bordered wrapper */
+.support-form-wrapper {
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+  display: block;
+}
+
+.support-form {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Parallax stack used on Support page */
+.parallax-viewport {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.parallax-item {
+  height: 220px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.parallax-caption {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  color: white;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+.parallax-caption h5 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.parallax-caption p {
+  margin: 0.35rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.95;
+  line-height: 1.4;
+}
+
+/* Responsive parallax for tablets */
+@media (max-width: 1024px) {
+  .parallax-item {
+    height: 200px;
+    background-attachment: scroll;
+  }
+}
+
+/* Responsive parallax for mobile */
+@media (max-width: 768px) {
+  .parallax-item {
+    height: 180px;
+    background-attachment: scroll;
+  }
+
+  .parallax-caption {
+    left: 12px;
+    bottom: 10px;
+  }
+
+  .parallax-caption h5 {
+    font-size: 1rem;
+  }
+
+  .parallax-caption p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .parallax-item {
+    height: 150px;
+  }
+
+  .parallax-caption {
+    left: 10px;
+    bottom: 8px;
+  }
+
+  .parallax-caption h5 {
+    font-size: 0.9rem;
+  }
+
+  .parallax-caption p {
+    font-size: 0.75rem;
+    display: none;
+  }
+
+  .support-form-wrapper {
+    border: 1px solid #d1d5db;
+  }
+}
